@@ -2,9 +2,9 @@
 
 This repository provisions an EC2 instance on AWS using Terraform, and includes a mini DevOps project where a Node.js app is:
 
-- Dockerized
-- Pushed to Amazon ECR
-- Deployed to ECS via GitHub Actions
+- Dockerized  
+- Pushed to Amazon ECR  
+- Deployed to ECS via GitHub Actions  
 - Monitored using New Relic
 
 ---
@@ -40,35 +40,48 @@ Edit
 
 In `aws/config`, add:
 
-ini
 [profile terraform_aws]
 aws_access_key_id = YOUR_ACCESS_KEY
 aws_secret_access_key = YOUR_SECRET_KEY
 region = us-east-1
+
+yaml
+Copy
+Edit
+
 Then in your terminal:
 
-bash
-Copy
-Edit
 export AWS_PROFILE=terraform_aws
-🔒 Do not commit credentials. Add aws/config to .gitignore.
 
-🚀 How to Deploy
-bash
+yaml
 Copy
 Edit
+
+> 🔒 Do not commit credentials. Add `aws/config` to `.gitignore`.
+
+---
+
+## 🚀 How to Deploy
+
 terraform init
 terraform plan
 terraform apply
-Push to GitHub to trigger the ECS deployment via GitHub Actions.
 
-📈 Monitoring
-New Relic Node.js agent is used in the ECS container
-
-Metrics visible in your New Relic dashboard
-
-🧹 Cleanup
-bash
+yaml
 Copy
 Edit
+
+Push to GitHub to trigger the ECS deployment via GitHub Actions.
+
+---
+
+## 📈 Monitoring
+
+- New Relic Node.js agent is used in the ECS container
+- Metrics are visible in your New Relic dashboard
+
+---
+
+## 🧹 Cleanup
+
 terraform destroy
